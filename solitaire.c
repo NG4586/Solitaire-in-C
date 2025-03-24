@@ -447,16 +447,19 @@ bool move(struct table* game)
       return false;
    }
    stackB --;
-   if ((cutoff < 0) || (cutoff > 18) ||
-       (game -> tableau)[stackB][cutoff].state == 3 ||
-       (game -> tableau)[stackB][cutoff].state == 0)
+   if ((cutoff < 0) || (cutoff > 18) || (game -> tableau)[stackB][cutoff].state == 0)
    {
       int count = 19;
       while (count > 0 && (game -> tableau)[stackB][count - 1].state == 0)
       {
          count --;
       }
-      printf("Cannot take %d cards from stack %d.\r\n", count - cutoff, stackA);
+      printf("You cannot take %d cards from stack %d.\r\n", count - cutoff, stackB);
+      return false;
+   }
+   if ((game -> tableau)[stackB][cutoff].state == 3)
+   {
+      printf("You cannot move an unrevealed card.\n");
       return false;
    }
    if ((stackA < 1) || (stackA > 7))
