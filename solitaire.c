@@ -243,7 +243,7 @@ void output(struct table game)
    printf("\n");
    int progress[7] = {0, 0, 0, 0, 0, 0, 0};
    int increment[7] = {0, 0, 0, 0, 0, 0, 0};
-   int lines = 36;
+   int lines = 35;
    int complete = 0;
    while (complete < 7)
    {
