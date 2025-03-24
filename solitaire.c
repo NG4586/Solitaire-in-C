@@ -454,7 +454,7 @@ bool move(struct table* game)
       {
          count --;
       }
-      printf("You cannot take %d cards from stack %d.\r\n", count - cutoff, stackB);
+      printf("You cannot take %d cards from stack %d.\r\n", count - cutoff, stackB + 1);
       return false;
    }
    if ((game -> tableau)[stackB][cutoff].state == 3)
