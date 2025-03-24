@@ -501,7 +501,6 @@ bool found(struct table* game)
 {
    int stack;
    scanf("%d", &stack);
-   printf("%d\n", stack);
    if ((stack < 0) || (stack > 7))
    {
       printf("There is no stack %d.\r\n", stack);
