@@ -305,12 +305,7 @@ bool draw(struct table* game)
       (game -> topCard) --; // off by one correction
       (game -> topDiscard) ++;
    }
-   if ((game -> discard)[0].state == 2) // if "invisible single card"
-   {
-      (game -> discard)[0].state = 5;
-      (game -> topDiscard) ++;
-   }
-   else if ((game -> topDiscard) > 0)
+   if ((game -> topDiscard) > 0 || (game -> discard)[0].state == 2)
    {
       (game -> discard)[game -> topDiscard].state = 5;
    }
@@ -591,7 +586,7 @@ int main(int argc, char** argv)
 {
    if (argc == 2)
    {
-      int seed = strtol(argv[1], NULL, 10);
+      unsigned int seed = strtol(argv[1], NULL, 10);
       srand(seed);
    }
    else
