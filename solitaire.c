@@ -6,7 +6,7 @@
 #include <time.h>
 
 const char RANKS[13] = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
-const char* SUITS[4] = {"♠", "♥", "♦", "♣"};
+const char* SUITS[4] = {"♠", "\033[31m♥\033[0m", "\033[31m♦\033[0m", "♣"};
 
 /* state
    0 - does not exist
