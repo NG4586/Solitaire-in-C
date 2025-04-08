@@ -11,6 +11,8 @@ Actions:
   
   ```f [stack]```: Move a card from one of the stacks to the foundation. To move a card directly from the draw pile, set ```stack``` to 0.
   
+  ```r```: Shuffle the cards and reset the game.
+  
   ```q```: Exit the program.
 
 There is also the option to use ```1```, ```2```, ```3```, or ```4``` instead of ```d```, ```p```, ```m```, and ```f```.

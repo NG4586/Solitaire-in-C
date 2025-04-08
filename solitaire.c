@@ -521,6 +521,7 @@ bool found(struct table* game)
       if ((game -> tableau)[stack][0].state == 0)
       {
          printf("Stack %d is empty.\r\n", stack + 1);
+         return false;
       }
       space = 0;
       while ((game -> tableau)[stack][space].state != 2)
@@ -564,6 +565,12 @@ bool found(struct table* game)
    return true;
 }
 
+bool reset(struct table* game)
+{
+   *game = setup();
+   return true;
+}
+
 void act(bool (*action)(struct table*), struct table* game, char* input)
 {
    if ((*action)(game))
@@ -578,8 +585,22 @@ void act(bool (*action)(struct table*), struct table* game, char* input)
          return;
       }
    }
-   printf("You win!\r\n");
-   *input = 'q';
+   printf("You win!\r\n\nNew game? [y/n]\r\n\n");
+   *input = 'i';
+   while (*input != 'y' && *input != 'n')
+   {
+      scanf("%c", input);
+   }
+   if (*input == 'y')
+   {
+      reset(game);
+      *input = 'i';
+      output(*game);
+   }
+   else
+   {
+      *input = 'q';
+   }
 }
 
 int main(int argc, char** argv)
@@ -614,6 +635,10 @@ int main(int argc, char** argv)
       else if (input == 'f' || input == '4')
       {
          act(found, &game, &input);
+      }
+      else if (input == 'r')
+      {
+         act(reset, &game, &input);
       }
    }
    return 0;
